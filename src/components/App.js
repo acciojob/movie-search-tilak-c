@@ -32,15 +32,17 @@ const App = () => {
   return (
     <div>
     <h1>Search Movie</h1>
+    <form>
     <input type="text" value={query} onChange={(e)=>setQuery(e.target.value)}/>
     <button onClick={handleSearch}>Search</button>
+    </form>
      {error && <p className="error">{error}</p>}
     {movies.length>0 && movies.map((movie)=>(
-      <div key={movie.imdbID}>
+      <li key={movie.imdbID}>
         <img src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/100"} alt={movie.Title} width="100"/>
         <p>{movie.Title}</p>
         <p>{movie.Year}</p>
-        </div>
+        </li>
     ))}
     </div>
   )
